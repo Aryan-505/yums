@@ -47,3 +47,9 @@ div.tabs > *.active{
 .flying-button-parent button{
     @apply border-primary bg-primary text-white rounded-full;
 }
+body{
+    background-size: cover; /* Adjust to fit the background size */
+    background-position: center; /* Center the background image */
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full width */
+}

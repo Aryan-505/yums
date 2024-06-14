@@ -62,7 +62,7 @@ export default function OrderPage() {
               <br />
               Total:
               <span className="text-black font-bold inline-block w-8">
-                ${subtotal + 5}
+              ₹{subtotal + 5}
               </span>
             </div>
           </div>

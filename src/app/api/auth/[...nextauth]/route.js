@@ -1,3 +1,4 @@
+// 'use client';
 import clientPromise from "@/libs/mongoConnect";
 import {UserInfo} from "@/models/UserInfo";
 import bcrypt from "bcrypt";
@@ -7,7 +8,6 @@ import NextAuth, {getServerSession} from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@auth/mongodb-adapter"
-
 export const authOptions = {
   secret: process.env.SECRET,
   adapter: MongoDBAdapter(clientPromise),
@@ -27,11 +27,13 @@ export const authOptions = {
         const email = credentials?.email;
         const password = credentials?.password;
 
-        mongoose.connect(process.env.MONGO_URL);
+        mongoose.connect("mongodb+srv://aryan12a17:OqLGXwPTqTWwaI38@cluster0.7fzy5qd.mongodb.net/");
         const user = await User.findOne({email});
         const passwordOk = user && bcrypt.compareSync(password, user.password);
-
+        //  const session=useSession();
+        //  console.log(session)
         if (passwordOk) {
+          console.log("authe")
           return user;
         }
 

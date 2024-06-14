@@ -91,10 +91,11 @@ export default function CartPage() {
           {cartProducts?.length === 0 && (
             <div>No products in your shopping cart</div>
           )}
-          {cartProducts?.length > 0 && cartProducts.map((product, index) => (
+{cartProducts?.length > 0 && cartProducts.map((product, index) => (
             <CartProduct
               key={index}
               product={product}
+              index={index} // Pass the index to the CartProduct component
               onRemove={removeCartProduct}
             />
           ))}
@@ -105,9 +106,9 @@ export default function CartPage() {
               Total:
             </div>
             <div className="font-semibold pl-2 text-right">
-              ${subtotal}<br />
-              $5<br />
-              ${subtotal + 5}
+            ₹{subtotal}<br />
+              ₹5<br />
+              ₹{subtotal + 5}
             </div>
           </div>
         </div>
@@ -118,7 +119,7 @@ export default function CartPage() {
               addressProps={address}
               setAddressProp={handleAddressChange}
             />
-            <button type="submit">Pay ${subtotal+5}</button>
+            <button type="submit">Pay ₹{subtotal+5}</button>
           </form>
         </div>
       </div>
